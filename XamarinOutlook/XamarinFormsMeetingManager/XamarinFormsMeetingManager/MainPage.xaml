@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+See LICENSE in the project root for license information. -->
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsMeetingManager.MainPage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="10, 30, 10, 0" Android="10, 10, 10, 0" WinPhone="50, 10, 50, 0" />
+  </ContentPage.Padding>
+
+  <StackLayout x:Name="MainStack" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" >
+    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+      <Button x:Name="ConnectButton" Clicked="OnConnectClicked" />
+      <Button x:Name="RefreshButton" IsEnabled="False" Clicked="OnRefreshClicked" />
+      <Button x:Name="CreateButton" IsEnabled="False" Clicked="OnCreateClicked" />
+      <Button x:Name="SignoutButton" Clicked="OnSignoutClicked" />
+    </StackLayout>
+    <Label VerticalOptions="Center" x:Name="DateSelectHeader" />
+    <DatePicker x:Name="DatePicker" IsEnabled="False" DateSelected="OnDateSelected" Format="D" />
+    <ListView x:Name="MeetingView" Header="Time     Subject" IsVisible="False" IsEnabled="False" ItemSelected="OnItemSelected" >
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal">
+             <Label HorizontalOptions="Start" x:Name="Time" Text="{Binding Path=Start.DateTime}"/>
+             <Label HorizontalOptions="Start" x:Name="Subject" Text="{Binding Path=Subject}"/>            
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    
+  </StackLayout>
+
+</ContentPage>

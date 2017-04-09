@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+See LICENSE in the project root for license information. -->
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsMeetingManager.EditRecurrencePage"
+             NavigationPage.HasBackButton="False">
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="10, 30, 10, 0" Android="10, 10, 10, 0" WinPhone="50, 10, 50, 0" />
+  </ContentPage.Padding>
+
+  <StackLayout Orientation="Vertical" x:Name="EditRecurrenceMainStack" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+      
+    <Button x:Name="RecurrenceTypeButton" HorizontalOptions="CenterAndExpand" Clicked="OnRecurrenceTypeClicked"/>
+
+    <Label x:Name="DailylLabel" VerticalOptions="Start" IsVisible="False" />
+    
+    <StackLayout Orientation="Horizontal" x:Name="WeeklyStack" IsVisible="False" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+      <Label x:Name="EveryWeekLabel" />
+      <Editor BackgroundColor="Gray" x:Name="NumberOfWeeksEditor" Text="1" />
+      <Label x:Name="WeeklyLabel" />
+      <Label x:Name="WeeklyDayOfWeek" />
+      <Button x:Name="DaysOfWeekButton" Clicked="OnDayOfWeekClicked" />
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" x:Name="MonthlyStack" IsVisible="False" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+      <Label x:Name="MonthDayLabel" />
+      <Editor BackgroundColor="Gray" x:Name="MonthDayNumberLabel" Text="1" />
+      <Label x:Name="OfEveryLabel" />
+      <Editor BackgroundColor="Gray" x:Name="MonthIntervalLabel" Text="1" />
+      <Label x:Name="MonthSingPluralLabel" />
+    </StackLayout>
+    
+    
+    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="StartAndExpand">     
+      <Label x:Name="StartOnLabel"/>
+      <DatePicker x:Name="StartOnDatePicker" Format="D" />
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+      <Label x:Name="EndOnLabel"/>
+      <DatePicker x:Name="EndOnDatePicker" Format="D" />
+    </StackLayout>
+    
+    <Label x:Name="EndAfterLabel"/>
+    <Editor BackgroundColor="Gray" x:Name="EndAfterOccurrencesEntry" TextChanged="OnEndAfterOccurencesTextChanged"/>
+    <Label x:Name="OccurencesLabel"/>
+
+    <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+      <Button x:Name="SaveButton" Clicked="OnSaveClicked"/>
+      <Button x:Name="CancelButton" Clicked="OnCancelClicked"/>
+    </StackLayout>
+
+    
+  </StackLayout>
+
+
+</ContentPage>

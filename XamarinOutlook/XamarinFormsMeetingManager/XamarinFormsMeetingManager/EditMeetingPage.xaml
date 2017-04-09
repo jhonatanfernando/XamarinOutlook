@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+See LICENSE in the project root for license information. -->
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsMeetingManager.EditMeetingPage"
+             NavigationPage.HasBackButton="False">
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="10, 30, 10, 0" Android="10, 10, 10, 0" WinPhone="100, 10, 50, 0" />
+  </ContentPage.Padding>
+
+  <ScrollView>
+  <StackLayout Orientation="Vertical" x:Name="EditMeetingMainStack" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">      
+      <Button x:Name="AddAttendeeButton" Clicked="OnAddAttendeeButtonClicked" />
+      <Button x:Name="RecurrenceButton" Clicked="OnRecurrenceButtonClicked" />      
+    </StackLayout>
+
+    <Label VerticalOptions="Start" x:Name="DateHeader" />
+    <DatePicker x:Name="DatePicker" Format="D" />
+    <Label VerticalOptions="Start" x:Name="SubjectHeader" />
+    <Editor HorizontalOptions="FillAndExpand" BackgroundColor="Gray" VerticalOptions="Start" x:Name="Subject"/>
+    <Label x:Name="StartTimeHeader" />
+    <TimePicker VerticalOptions="Start" x:Name="StartTimePicker"/>
+    <Label x:Name="EndTimeHeader" />
+    <TimePicker VerticalOptions="End" x:Name="EndTimePicker"/>
+    <Label x:Name="LocationHeader"/>
+    <Editor HorizontalOptions="FillAndExpand" BackgroundColor="Gray" VerticalOptions="Start" x:Name="Location"/>
+    <Label x:Name="AttendeesHeader"/>
+    <Label VerticalOptions="StartAndExpand" x:Name="AttendeesBox"/>
+    <Label x:Name="DescriptionHeader"/>
+
+    <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+      <Button x:Name="SaveButton" Clicked="OnSaveClicked"/>
+      <Button x:Name="CancelButton" Clicked="OnCancelClicked"/>
+    </StackLayout>
+
+  </StackLayout>  
+    
+  </ScrollView>
+</ContentPage>

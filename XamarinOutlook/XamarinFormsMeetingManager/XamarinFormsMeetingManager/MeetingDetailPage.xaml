@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+See LICENSE in the project root for license information. -->
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsMeetingManager.MeetingDetailPage">
+
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="10, 30, 10, 0" Android="10, 10, 10, 0" WinPhone="100, 10, 50, 0" />
+  </ContentPage.Padding>
+  
+  <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+      <Button x:Name="EmailButton" Clicked="OnEmailClicked"/>
+      <Button x:Name="RunLateButton" Clicked="OnRunLateClicked" />
+      <Button x:Name="EditButton" Clicked="OnEditClicked" />
+      <Button x:Name="DeleteButton" Clicked="OnDeleteClicked"/>
+    </StackLayout>
+
+      <Label VerticalOptions="Start" x:Name="Subject"/>
+      <Label VerticalOptions="Start" x:Name="Date"/>
+      <Label VerticalOptions="Start" x:Name="Time"/>
+      <Label VerticalOptions="Start" x:Name="Location"/>
+      <Label VerticalOptions="Start" x:Name="BodyHeader" FontAttributes="Bold"/>
+      <Label VerticalOptions="Start" x:Name="Body"/>
+
+    <ListView x:Name="AttendeesView" Header="Attendees">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding EmailAddress.Name}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+</ContentPage>
